@@ -1,4 +1,13 @@
-const TodoData = (props) => {
+interface TodoDataProps {
+    myName: string;
+    age: number;
+    data: {
+        address: string;
+        country: string;
+    };
+}
+
+const TodoData = (props: TodoDataProps) => {
     // props: là một biến object ==> Object destructuring mdn Web Docs
     // {
     //     name: "Dong Arsenal",
@@ -13,7 +22,7 @@ const TodoData = (props) => {
     // const myName = props.myName;
     // const age = props.age;
     // const data = props.data;
-    console.log(">>> check props: ", props);
+    //console.log(">>> check props: ", props);
     return (
         <div className='todo-data'>
             <div>My name is {myName} </div>
