@@ -6,6 +6,7 @@ import TodoNew from './components/todo/TodoNew'
 import TodoData from './components/todo/TodoData'
 import reactLogo from './assets/react.svg'
 import { count } from 'console'
+
 // () => {} : arrow function
 //component = html + css + javascript
 
