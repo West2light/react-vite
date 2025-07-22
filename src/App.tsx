@@ -6,6 +6,8 @@ import TodoNew from './components/todo/TodoNew'
 import TodoData from './components/todo/TodoData'
 import reactLogo from './assets/react.svg'
 import { count } from 'console'
+import Header from './components/layout/header/header'
+import Footer from './components/layout/footer/footer'
 
 // () => {} : arrow function
 //component = html + css + javascript
@@ -38,36 +40,38 @@ const App = () => {
     setTodoList(newTodoList);
   }
   return (
-    <div className='todo-container'>
-      <div className='todo-title'>Todo List</div>
-      <TodoNew
-        addNewTodo={addNewTodo} />
-      {todoList.length > 0
-        ?
-        <TodoData
-          // myName={duongdong}
-          // age={age}
-          // data={data}
-          todoList={todoList}
-          deleteTodo={deleteTodo}
-        />
-        :
-        <div className='todo-image'>
-          <img src={reactLogo} alt="Logo React" className='logo' />
-        </div>
-      }
+    <>
+      <Header />
+      <div className='todo-container'>
+        <div className='todo-title'>Todo List</div>
+        <TodoNew
+          addNewTodo={addNewTodo} />
+        {todoList.length > 0
+          ?
+          <TodoData
+            // myName={duongdong}
+            // age={age}
+            // data={data}
+            todoList={todoList}
+            deleteTodo={deleteTodo} />
+          :
+          <div className='todo-image'>
+            <img src={reactLogo} alt="Logo React" className='logo' />
+          </div>}
 
-      {/* {todoList.length > 0 &&
-        <TodoData
-          // myName={duongdong}
-          // age={age}
-          // data={data}
-          todoList={todoList}
-        />}
-      {todoList.length === 0 && <div className='todo-image'>
-        <img src={reactLogo} alt="Logo React" className='logo' />
-      </div>} */}
-    </div>
+        {/* {todoList.length > 0 &&
+      <TodoData
+        // myName={duongdong}
+        // age={age}
+        // data={data}
+        todoList={todoList}
+      />}
+    {todoList.length === 0 && <div className='todo-image'>
+      <img src={reactLogo} alt="Logo React" className='logo' />
+    </div>} */}
+      </div>
+      <Footer />
+    </>
   );
 }
 
