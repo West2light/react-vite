@@ -32,6 +32,10 @@ const App = () => {
   const randomIntFromInterval = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
+  const deleteTodo = (id: number) => {
+    const newTodoList = todoList.filter((item) => item.id !== id);
+    setTodoList(newTodoList);
+  }
   return (
     <div className='todo-container'>
       <div className='todo-title'>Todo List</div>
@@ -44,6 +48,7 @@ const App = () => {
           // age={age}
           // data={data}
           todoList={todoList}
+          deleteTodo={deleteTodo}
         />
         :
         <div className='todo-image'>

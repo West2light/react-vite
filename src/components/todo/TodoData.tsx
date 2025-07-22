@@ -9,6 +9,7 @@ interface TodoDataProps {
         id: number;
         name: string;
     }>;
+    deleteTodo: (id: number) => void;
 }
 
 const TodoData = (props: TodoDataProps) => {
@@ -22,24 +23,32 @@ const TodoData = (props: TodoDataProps) => {
     //     }
     // }
     // props là một đối tượng chứa các thuộc tính được truyền từ component cha
-    const { todoList } = props;
+    const { todoList, deleteTodo } = props;
     // const myName = props.myName;
     // const age = props.age;
     // const data = props.data;
+    const handleDelete = (id: number) => {
+        deleteTodo(id);
+        return id;
+    }
+
 
     return (
         <div className='todo-data'>
             {/* <div>My age is {age}</div>
             <div>My address is {data.address}</div> */}
             {todoList.map((item, index) => {
-                console.log(">>>check map:", item, index)
+                // console.log(">>>check map:", item, index)
                 return (
                     <div className={`todo-item `} key={item.id}>
                         <div>{item.name}</div>
-                        <button>Delete</button>
+                        <button
+                            style={{ cursor: "pointer" }}
+                            onClick={() => handleDelete(item.id)} >Delete</button>
                     </div>
                 );
             })}
+
             {/* <div> Learning React</div>
             <div> Watching Youtube</div> */}
             {/* <div>
