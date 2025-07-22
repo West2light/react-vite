@@ -12,14 +12,17 @@ const TodoNew = (props: TodoNewProps) => {
     //addNewTodo('Dong Arsenal');
     const handleClick = () => {
         addNewTodo(valueInput);
-        console.log(">>> check value input: ", valueInput);
+        setValueInput(""); // reset input field after adding
     }
     const handleOnChange = (name: string) => {
         setValueInput(name);
+
     }
     return (
         <div className='todo-new'>
-            <input type="text" onChange={(event) => handleOnChange(event.target.value)} />
+            <input type="text" onChange={(event) => handleOnChange(event.target.value)}
+                value={valueInput}
+            />
             <button style={{ cursor: "pointer" }} onClick={handleClick}>Add</button>
             <div>
                 My text input is = {valueInput}

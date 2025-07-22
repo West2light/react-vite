@@ -1,10 +1,10 @@
 interface TodoDataProps {
-    myName: string;
-    age: number;
-    data: {
-        address: string;
-        country: string;
-    };
+    // myName: string;
+    // age: number;
+    // data: {
+    //     address: string;
+    //     country: string;
+    // };
     todoList: Array<{
         id: number;
         name: string;
@@ -22,21 +22,31 @@ const TodoData = (props: TodoDataProps) => {
     //     }
     // }
     // props là một đối tượng chứa các thuộc tính được truyền từ component cha
-    const { myName, age, data } = props;
+    const { todoList } = props;
     // const myName = props.myName;
     // const age = props.age;
     // const data = props.data;
-    console.log(">>> check props: ", props);
+
     return (
         <div className='todo-data'>
-            <div>My name is {myName} </div>
             {/* <div>My age is {age}</div>
             <div>My address is {data.address}</div> */}
-            <div> Learning React</div>
-            <div> Watching Youtube</div>
-            <div>
+            {todoList.map((item, index) => {
+                console.log(">>>check map:", item, index)
+                return (
+                    <div className={`todo-item `} key={item.id}>
+                        <div>{item.name}</div>
+                        <button>Delete</button>
+                    </div>
+                );
+            })}
+            {/* <div> Learning React</div>
+            <div> Watching Youtube</div> */}
+            {/* <div>
                 {JSON.stringify(props.todoList)}
             </div>
+             */}
+
         </div>
     );
 }
