@@ -1,0 +1,72 @@
+import { useState } from 'react'
+
+
+import './todo.css'
+import TodoNew from './TodoNew'
+import TodoData from './TodoData'
+import reactLogo from '../../assets/react.svg'
+
+type Todo = { id: number; name: string };
+
+const TodoApp = () => {
+
+    const [todoList, setTodoList] = useState<Todo[]>([
+        //{ id: 1, name: 'Learning React' },
+        // { id: 2, name: 'Watching Youtube' }
+    ]);
+    // const duongdong = 'Dong Arsenal';
+    //{key: value} : object
+
+    // const age = 25;
+    // const data = {
+    //   address: 'Ha Noi',
+    //   country: 'Vietnam',
+    // }
+    const addNewTodo = (name: string) => {
+        const newTodo = {
+            id: randomIntFromInterval(3, 1000), // random id from 3 to 1000
+            name: name
+        }
+        setTodoList([...todoList, newTodo]);
+    }
+    const randomIntFromInterval = (min: number, max: number) => {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    const deleteTodo = (id: number) => {
+        const newTodoList = todoList.filter((item) => item.id !== id);
+        setTodoList(newTodoList);
+    }
+    return (
+
+
+        <div className='todo-container'>
+            <div className='todo-title'>Todo List</div>
+            <TodoNew
+                addNewTodo={addNewTodo} />
+            {todoList.length > 0
+                ?
+                <TodoData
+                    // myName={duongdong}
+                    // age={age}
+                    // data={data}
+                    todoList={todoList}
+                    deleteTodo={deleteTodo} />
+                :
+                <div className='todo-image'>
+                    <img src={reactLogo} alt="Logo React" className='logo' />
+                </div>}
+
+            {/* {todoList.length > 0 &&
+      <TodoData
+        // myName={duongdong}
+        // age={age}
+        // data={data}
+        todoList={todoList}
+      />}
+    {todoList.length === 0 && <div className='todo-image'>
+      <img src={reactLogo} alt="Logo React" className='logo' />
+    </div>} */}
+        </div>
+    );
+}
+export default TodoApp;

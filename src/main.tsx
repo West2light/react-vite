@@ -8,12 +8,29 @@ import {
 import LoginPage from './pages/login.tsx';
 import RegisterPage from './pages/register.tsx';
 import UsersPage from './pages/user.tsx';
-import ProductPage from './pages/product.tsx';
+import BookPage from './pages/book.tsx';
 import './styles/global.css'
+import TodoApp from './components/todo/TodoApp.tsx';
+import ErrorPage from './pages/erorr.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <TodoApp />
+      },
+      {
+        path: 'users',
+        element: <UsersPage />,
+      },
+      {
+        path: "books",
+        element: <BookPage />,
+      }
+    ]
   },
   {
     path: "/login",
@@ -23,14 +40,6 @@ const router = createBrowserRouter([
     path: "/register",
     element: <RegisterPage />,
   },
-  {
-    path: 'users',
-    element: <UsersPage />,
-  },
-  {
-    path: "products",
-    element: <ProductPage />,
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
