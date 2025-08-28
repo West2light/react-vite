@@ -12,11 +12,15 @@ const UserForm = () => {
         const res = await createUserApi(fullName, email, password, phone);
         if (res.data) {
             notification.success({
-                message: "create user",
+                message: "Create user",
                 description: "Tạo user thành công"
             })
+        } else {
+            notification.error({
+                message: "Error create user",
+                description: JSON.stringify(res.message)
+            })
         }
-        console.log(">>> check res: ", res.data)
     };
     return (
 
