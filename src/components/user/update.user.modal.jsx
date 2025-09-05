@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { updateUserApi } from "../../services/api.services";
 
 const UpdateUserModal = (props) => {
-    console.log(">>> check props", props);
     const [fullName, setFullName] = useState("");
     const [id, setId] = useState("");
     const [phone, setPhone] = useState("");
