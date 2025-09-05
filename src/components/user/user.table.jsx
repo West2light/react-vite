@@ -3,9 +3,12 @@ import { fetchAllUserAPI } from '../../services/api.services';
 import { useEffect, useState } from 'react';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import UpdateUserModal from './update.user.modal';
+
 const UserTable = (props) => {
 
-    const { dataUsers } = props;
+    const { dataUsers, loadUser } = props;
+    const [dataUpdate, setDataUpdate] = useState(null);
+    const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
     const columns = [
         {
             title: 'Id',
@@ -29,20 +32,32 @@ const UserTable = (props) => {
             key: 'action',
             render: (_, record) => (
                 <div style={{ display: 'flex', gap: '10px' }}>
-                    <EditOutlined style={{ cursor: 'pointer', color: 'orange' }} />
+                    <EditOutlined
+                        onClick={() => {
+                            console.log('click edit', record);
+                            setIsModalUpdateOpen(true);
+                            setDataUpdate(record);
+                        }}
+                        style={{ cursor: 'pointer', color: 'orange' }} />
                     <DeleteOutlined style={{ cursor: 'pointer', color: 'red' }} />
                 </div>
             ),
         },
     ];
-
+    console.log(">>> check dataUpdate", dataUpdate);
     return (
         <>
             <Table
                 columns={columns}
                 dataSource={dataUsers}
                 rowKey="_id" />
-            <UpdateUserModal />
+            <UpdateUserModal
+                isModalUpdateOpen={isModalUpdateOpen}
+                setIsModalUpdateOpen={setIsModalUpdateOpen}
+                dataUpdate={dataUpdate}
+                setDataUpdate={setDataUpdate}
+                loadUser={loadUser}
+            />
         </>
     );
 

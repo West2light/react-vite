@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import UserForm from "../components/user/user.form";
 import UserTable from "../components/user/user.table";
 import { fetchAllUserAPI } from "../services/api.services";
+import UpdateUserModal from "../components/user/update.user.modal";
 
 const UsersPage = () => {
     //lift-up state
@@ -29,6 +30,7 @@ const UsersPage = () => {
             />
             <UserTable
                 dataUsers={dataUsers}
+                loadUser={loadUser}
             />
         </div>
     );
