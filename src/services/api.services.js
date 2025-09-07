@@ -20,7 +20,7 @@ const updateUserApi = (_id, fullName, phone) => {
     return axios.patch(BASE_URL, data);
 }
 const deleteUserApi = (_id) => {
-    const BASE_URL = "/api/v1/user";
+    const BASE_URL = `/api/v1/user/${_id}`;
     return axios.delete(BASE_URL, { data: { _id: _id } });
 }
 const fetchAllUserAPI = () => {
