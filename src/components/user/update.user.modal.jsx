@@ -1,4 +1,4 @@
-import { Input, Button, notification, Modal } from "antd";
+import { Input, notification, Modal } from "antd";
 import { useEffect, useState } from "react";
 import { updateUserApi } from "../../services/api.services";
 

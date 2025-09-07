@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Button, Drawer } from 'antd';
+import React from 'react';
+import { Drawer } from 'antd';
 const DetailUserModal = (props) => {
     const { isModalDetailOpen, setIsModalDetailOpen, dataDetail, setDataDetail } = props;
 
-    const showDrawer = () => {
-        setIsModalDetailOpen(true);
-    };
+    // const showDrawer = () => {
+    //     setIsModalDetailOpen(true);
+    // };
     const onClose = () => {
         setDataDetail(null);
         setIsModalDetailOpen(false);

@@ -1,6 +1,5 @@
-import { Table, Button, message, Popconfirm, notification } from 'antd';
-import { fetchAllUserAPI } from '../../services/api.services';
-import { useEffect, useState } from 'react';
+import { Table, Popconfirm, notification } from 'antd';
+import { useState } from 'react';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import UpdateUserModal from './update.user.modal';
 import DetailUserModal from './detail.user.modal';
@@ -18,7 +17,7 @@ const UserTable = (props) => {
     const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
     const [isModalDetailOpen, setIsModalDetailOpen] = useState(false);
     const [dataDetail, setDataDetail] = useState(null);
-    const [dataDelete, setDataDelete] = useState(null);
+    const [setDataDelete] = useState(null);
 
     const columns = [
         {
