@@ -13,7 +13,6 @@ module.exports = {
     'react/jsx-no-target-blank': 'off',
     'react/prop-types': 'off',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
