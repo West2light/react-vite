@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom"
 import LoginPage from './pages/login.tsx';
-import RegisterPage from './pages/register.tsx';
+import RegisterPage from './pages/register.jsx';
 import UsersPage from './pages/user.jsx';
 import BookPage from './pages/book.tsx';
 import './styles/global.css'

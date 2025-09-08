@@ -49,4 +49,15 @@ const updateUserAvatarAPI = (avatar, _id, fullName, phone) => {
     }
     return axios.patch(BASE_URL, data);
 }
-export { createUserApi, updateUserApi, fetchAllUserAPI, deleteUserApi, handleUploadFile, updateUserAvatarAPI }
+const registerUserAPI = (fullName, email, password, phone) => {
+    const BASE_URL = "/api/v1/user/register";
+    const data = {
+        fullName: fullName,
+        email: email,
+        password: password,
+        phone: phone
+    }
+    return axios.post(BASE_URL, data);
+}
+
+export { createUserApi, updateUserApi, fetchAllUserAPI, deleteUserApi, handleUploadFile, updateUserAvatarAPI, registerUserAPI }
