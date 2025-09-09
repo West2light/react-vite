@@ -1,4 +1,4 @@
-import { Input, Form, Button, notification } from "antd";
+import { Input, Form, Button, notification, Row, Col } from "antd";
 import { registerUserAPI } from "../services/api.services";
 import { useNavigate } from "react-router-dom";
 const RegisterPage = () => {
@@ -35,63 +35,79 @@ const RegisterPage = () => {
             // onFinishFailed={onFinishFailed}
             form={form}
         >
-            <div style={{ margin: "50px" }}>
-                <Form.Item
-                    label="FullName"
-                    name="fullName"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your fullname!'
-                        }
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-                <Form.Item
-                    label="Email"
-                    name="email"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your email!'
-                        }
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            pattern: /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%\-_=+<>])([a-zA-Z0-9!@#$%\-_=+<>]+)$/,
-                            message: 'Mật khẩu phải có ít nhất 1 chữ cái, 1 số và 1 ký tự đặc biệt (!@#$%-_=+<>)'
-                        }
-                    ]}
-                >
-                    <Input.Password />
-                </Form.Item>
-                <Form.Item
-                    label="Phone number"
-                    name="phone"
-                    rules={[
-                        {
-                            required: true,
-                            pattern: new RegExp(/\d+/g),
-                            message: 'Wrong format phone number!' // regx phone number check antd
-                        }
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-
-                <div>
-                    <Button
-                        onClick={() => form.submit()}
-                        type="primary">Register</Button>
-                    {/* 
+            <Row style={{ justifyContent: "center" }}>
+                <Col xs={24} md={8}>
+                    <Form.Item
+                        label="FullName"
+                        name="fullName"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your fullname!'
+                            }
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row style={{ justifyContent: "center" }}>
+                <Col xs={24} md={8}>
+                    <Form.Item
+                        label="Email"
+                        name="email"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your email!'
+                            }
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row style={{ justifyContent: "center" }}>
+                <Col xs={24} md={8}>
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                        rules={[
+                            {
+                                required: true,
+                                pattern: /^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%\-_=+<>])([a-zA-Z0-9!@#$%\-_=+<>]+)$/,
+                                message: 'Mật khẩu phải có ít nhất 1 chữ cái, 1 số và 1 ký tự đặc biệt (!@#$%-_=+<>)'
+                            }
+                        ]}
+                    >
+                        <Input.Password />
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row style={{ justifyContent: "center" }}>
+                <Col xs={24} md={8}>
+                    <Form.Item
+                        label="Phone number"
+                        name="phone"
+                        rules={[
+                            {
+                                required: true,
+                                pattern: new RegExp(/\d+/g),
+                                message: 'Wrong format phone number!' // regx phone number check antd
+                            }
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row style={{ justifyContent: "center" }}>
+                <Col xs={24} md={8}>
+                    <div>
+                        <Button
+                            onClick={() => form.submit()}
+                            type="primary">Register</Button>
+                        {/* 
                     gioi thieu them 2 API getFieldsValue va setFieldsValue
                     1. getFieldsValue: lay toan bo gia tri trong form dua tren name
                     2. setFieldsValue: set gia tri cho tung truong dua tren name
@@ -99,7 +115,7 @@ const RegisterPage = () => {
                     Phân biệt số nhiều với số ít
                     Form co the co nhieu truong (field) nen dung getFieldsValue va setFieldsValue
                     Input chi la 1 truong (field) nen dung getFieldValue va setFieldValue */}
-                    {/* <Button
+                        {/* <Button
                         onClick={() => {
                             form.setFieldsValue({
                                 email: "dong004@gmail.com",
@@ -108,9 +124,10 @@ const RegisterPage = () => {
                             console.log(">>> check form: ", form.getFieldsValue());
                         }}
                     >Test</Button> */}
-                </div>
-            </div>
-        </Form>
+                    </div>
+                </Col>
+            </Row>
+        </Form >
     );
 }
 export default RegisterPage;
