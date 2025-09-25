@@ -1,11 +1,11 @@
-import { Input, Form, Button, notification, Row, Col } from "antd";
+import { Input, Form, Button, notification, Row, Col, Divider } from "antd";
 import { registerUserAPI } from "../services/api.services";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 const RegisterPage = () => {
     const [form] = Form.useForm();
     const navigate = useNavigate();
     const onFinish = async (value) => {
-        console.log(">>> check value: ", value);
+        //console.log(">>> check value: ", value);
         //call api register
 
         const res = await registerUserAPI(
@@ -34,7 +34,9 @@ const RegisterPage = () => {
             onFinish={onFinish}
             // onFinishFailed={onFinishFailed}
             form={form}
+            style={{ margin: "30px" }}
         >
+            <h3 style={{ textAlign: "center" }}>Đăng ký tài khoản</h3>
             <Row style={{ justifyContent: "center" }}>
                 <Col xs={24} md={8}>
                     <Form.Item
@@ -125,6 +127,8 @@ const RegisterPage = () => {
                         }}
                     >Test</Button> */}
                     </div>
+                    <Divider />
+                    <div>Đã có tài khoản? <Link to="/login">Đăng nhập tại đây</Link></div>
                 </Col>
             </Row>
         </Form >
